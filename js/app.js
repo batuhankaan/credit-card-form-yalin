@@ -51,17 +51,27 @@ function cnumber(){
             taksit.forEach(element => {
                 if(element.family === json.family){
                     console.log(element.family);
-                        const tutarlar = Math.floor(tutar / element.divisor / 100 * element.rate * element.divisor * 100) / 100;
+                    //
+                        const tutarlar = tutar / element.divisor / 100 * element.rate * element.divisor;
+                        const taksitbolen = tutar / element.divisor;
+                        const TutarBoluTaksit = taksitbolen+tutarlar;
+                        const sonuc = Math.round(TutarBoluTaksit * 100) / 100;
+                    //
+                        const taksitTutari = sonuc * element.divisor;
+                    //    const taksitSayisi = tutar / element.divisor;
+                    //    const taksitTutari = 100 * element.rate * element.divisor;
+                    //    const tutarlar = taksitSayisi / taksitTutari;
                       const dtable = `
                        <td>${element.rate}</td>
                        <td>${
-                           tutar / element.divisor + tutarlar
+                        sonuc
+                        // taksitbolen+tutarlar
                            + 
                            " x " 
                            + element.divisor
                         
                         }</td>
-                       <td>${tutar}</td>`;
+                       <td>${taksitTutari}</td>`;
                        document.getElementById("add").innerHTML += dtable;
                 }
             });
