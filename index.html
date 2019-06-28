@@ -18,9 +18,11 @@
         </div> -->
     <form id="ccForm" class="option active" disabled="disabled">
       <input id="name" maxlength="19" name="credit-number" placeholder="Name" />
-      <input onkeyup="cnumber()" onchange="cnumber()" id="cc" class="cc-number" maxlength="19" name="credit-number" placeholder="Card Number" type="tel" />
+      <!-- onkeyup="cnumber()" alttakinin -->
+      <input onchange="cnumber()" id="cc" class="cc-number" maxlength="19" name="credit-number" placeholder="Card Number" type="tel" />
       <input id="mmyy" class="cc-expires" maxlength="7" name="credit-expires" placeholder="MM / YY" type="tel" />
       <input id="cvc" class="cc-cvc" maxlength="4" name="credit-cvc" placeholder="CVC"/>
+      <input id="tutar" class="cc-cvc" maxlength="4" name="credit-cvc" placeholder="TUTAR TEST"/>
       <input type="submit" id="paynow"/>
     </form>
     <form class="option" disabled="disabled" id="credit">
