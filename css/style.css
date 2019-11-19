@@ -660,6 +660,9 @@ svg rect{
    
   @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   /* CSS KODLARI BURAYA */
+  .widget-container{
+    transform: scale(1.5);
+  }
    
   }
    
@@ -680,14 +683,19 @@ svg rect{
   /* Desktops and laptops ----------- */
    
   @media only screen and (min-width : 1224px) {
-  /* CSS KODLARI BURAYA */
+    /* .widget-container{
+      transform: scale(1.5);
+    } */
    
   }
   /* Large screens ----------- */
    
   @media only screen and (min-width : 1824px) {
     
-  /* CSS KODLARI BURAYA */
+    /* .widget-container{
+      transform: scale(1.7);
+      margin-top: 1%;
+    } */
   }
     
   /* iPhone 5 (portrait & landscape)----------- */
@@ -706,4 +714,4 @@ svg rect{
   @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
     
   /* CSS KODLARI BURAYA */
-  }
+  } 
