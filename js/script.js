@@ -147,12 +147,12 @@ function getCORS(url, success) {
   function InstTable(InstNumF,InstAmoF) {
     const dtable = `
     <tr class="test">
-    <td><label class="input-radio-button">${InstNumF === 1 ? "Tek Ã‡ekim" : InstNumF + " TAKSÄ°T"}
+    <td><label class="input-radio-button">${InstNumF === 1 ? "Tek Çekim" : InstNumF + " TAKSİT"}
       <input type="radio" name="radio">
       <span class="checkmark"></span>
     </label></td>
-    <td>${InstNumF} x ${InstAmoF}â‚º</td>
-    <td id="deleteAtt">${Math.floor(InstAmoF / InstNumF)} â‚º</td>
+    <td>${InstNumF} x ${InstAmoF}₺</td>
+    <td id="deleteAtt">${Math.floor(InstAmoF / InstNumF)} ₺</td>
   </tr>`;
   InstallmentTable.insertRow(-1).innerHTML += dtable;
   }
@@ -183,13 +183,13 @@ function cnumber(){
               }else if(json.brand == "TROY"){
                 cardIcon.src=troy;
               }else{
-                console.log("json brand boÅŸ");
+                console.log("json brand boş");
               }
               
             }else{
               InstTable(1,defaultins)
             }
             })['catch'](function(ex) {
-                err("Sunucuyla iletiÅŸim kurulamadÄ±.")
+                err("Sunucuyla iletişim kurulamadı.")
             });
     }
