@@ -31,29 +31,30 @@
     <!-- <input class="btn_err_style" type="reset" value="HATA KODU"> -->
    </div>
    <h1> Toplam: <b id="spp-total-amount"></b> ₺</h1>     
-   <form id="spp-form" action="#">
+   <form novalidate action="<?php echo $order->get_checkout_payment_url(true);?>" autocomplete="on" method="POST" id="spp-form" action="#">
      <div class="inputs">
        <div class="card-icon">
          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE5cHgiIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAwIDE5IDIwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzOS4xICgzMTcyMCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+Q29tYmluZWQgU2hhcGU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICAgIDxwYXRoIGQ9Ik0xLDE4LjYyNjQ2NDggQzEsMTguNjI2NDY0OCAxLjU1MTkzNDUzLDEzLjA3MzM4ODQgNi4yMDg3NTAyOCwxMS4xMDcxOTQzIEM0LjcwNjUwODA2LDEwLjEyNTMzMjkgMy43MTM4NjcxOSw4LjQyODU4ODMxIDMuNzEzODY3MTksNi41IEMzLjcxMzg2NzE5LDMuNDYyNDMzODggNi4xNzYzMDEwNiwxIDkuMjEzODY3MTksMSBDMTIuMjUxNDMzMywxIDE0LjcxMzg2NzIsMy40NjI0MzM4OCAxNC43MTM4NjcyLDYuNSBDMTQuNzEzODY3Miw4LjI2MTMyMDQzIDEzLjg4NTk0NDQsOS44MjkyNjkxMyAxMi41OTgwNDA3LDEwLjgzNTkwNDIgQzE3LjgzODUwNTgsMTIuNTM1NzE4NiAxNy44ODM1MTA2LDE4Ljk1ODAwNzggMTcuODgzNTEwNiwxOC45NTgwMDc4IEw2LjY5MTQwNjI1LDE4Ljk1ODAwNzgiIGlkPSJDb21iaW5lZC1TaGFwZSIgc3Ryb2tlPSIjQUI5MkE1IiBzdHJva2Utd2lkdGg9IjIiPjwvcGF0aD4KICAgIDwvZz4KPC9zdmc+" />
        </div>
-       <input type="text" name="cc_name" autofocus placeholder="Kart Sahibinin Adı">
+       <input type="text" name="cc_name" value="<?php echo Etictools::getValue('cc_name') ?>" autofocus placeholder="Kart Sahibinin Adı">
        <div class="card-icon">
          <img id="card-icons" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIxcHgiIGhlaWdodD0iMThweCIgdmlld0JveD0iMCAwIDIxIDE4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzOS4xICgzMTcyMCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+Y2FyZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJjYXJkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjAwMDAwMCwgMS4wMDAwMDApIiBzdHJva2U9IiNBQTkxQTQiIHN0cm9rZS13aWR0aD0iMiI+CiAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iUmVjdGFuZ2xlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBvaW50cz0iMCAxNiAwIDAgMTkgMCAxOSAxNCA2LjAxNjgyMTI5IDE0Ij48L3BvbHlsaW5lPgogICAgICAgICAgICA8cGF0aCBkPSJNMC4wMzI3MTQ4NDM4LDUuNTgyMjc1MzkgTDE4LjE5NTE3NTksNS41ODIyNzUzOSIgaWQ9IlBhdGgtMiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+" />
        </div>
-       <input type="tel" id="ccnumber" onkeypress="return isNumber(event)" onkeyup='keyup(), inputCheck(inputCcNumber,inputMonth,19)' maxlength="19" name="cc_number" placeholder="Kart Numarası">
+       <input type="tel" value="<?php if (Etictools::getValue('cc_number')): ?><?php echo Etictools::getValue('cc_number') ?><?php endif; ?>" id="ccnumber" onkeypress="return isNumber(event)" onkeyup='keyup(), inputCheck(inputCcNumber,inputMonth,19)' maxlength="19" name="cc_number" placeholder="Kart Numarası">
        <div class="left-input">
        <div class="card-icon">
          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIxcHgiIGhlaWdodD0iMjJweCIgdmlld0JveD0iMCAwIDIxIDIyIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzOS4xICgzMTcyMCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+R3JvdXA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS4wMDAwMDAsIDEuMDAwMDAwKSIgc3Ryb2tlPSIjQUE5MUE2IiBzdHJva2Utd2lkdGg9IjIiPgogICAgICAgICAgICA8cG9seWxpbmUgaWQ9IlJlY3RhbmdsZS0yIiBwb2ludHM9IjE1LjE5MTQwNjIgMiAxOSAyIDE5IDIwIDAgMjAgMCAyIDAgMiA0LjE2MzMzMDA4IDIiPjwvcG9seWxpbmU+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMiwwIEwxMiw1LjkwMjczMzk2IiBpZD0iUGF0aC0zIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik03LDAgTDcsNS45MDI3MzM5NiIgaWQ9IlBhdGgtMy1Db3B5Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" />
        </div>
-         <input class="last month" type="tel" id="month" maxlength="2" onkeypress="return isNumber(event)" onkeyup='inputCheck(inputMonth,inputYears,2), limiterMonth(this)' name="cc_expiry_month" placeholder="AA">
+         <input class="last month" value="<?php echo Etictools::getValue('cc_expiry') ?>" name="cc_expiry" type="tel" id="month" maxlength="2" onkeypress="return isNumber(event)" onkeyup='inputCheck(inputMonth,inputYears,2), limiterMonth(this)' placeholder="AA">
          <span class="slash">/</span>
-         <input class="last year" type="tel" id="years" maxlength="2" onkeypress="return isNumber(event)" onkeyup='inputCheck(inputYears,inputCvc,2), limiterYears(this)' name="cc_expiry_year" placeholder="YY">
+         <!-- value birleştirilecek name ve value -->
+         <input class="last year" value="<?php echo Etictools::getValue('cc_expiry') ?>" name="cc_expiry" type="tel" id="years" maxlength="2" onkeypress="return isNumber(event)" onkeyup='inputCheck(inputYears,inputCvc,2), limiterYears(this)' placeholder="YY">
        </div>
        <div class="right-input">
          <div class="card-icon">
          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIxcHgiIGhlaWdodD0iMjNweCIgdmlld0JveD0iMCAwIDIxIDIzIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzOS4xICgzMTcyMCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+R3JvdXAgMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjAwMDAwMCwgMS4wMDAwMDApIiBzdHJva2U9IiNBQTkyQTIiIHN0cm9rZS13aWR0aD0iMiI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNSw2IEMxNSwyLjY4NjI5MTUgMTIuMzEzNzA4NSwwIDksMCBDNS42ODYyOTE1LDAgMywyLjY4NjI5MTUgMyw2IiBpZD0iT3ZhbC0yIj48L3BhdGg+CiAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iUmVjdGFuZ2xlLTMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgcG9pbnRzPSIwIDIxIDAgNyAwIDcgMTkgNyAxOSAyMSA2LjA0MzIxMjg5IDIxIj48L3BvbHlsaW5lPgogICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsIiBjeD0iMTAiIGN5PSIxNCIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" />
        </div>
-         <input class="last" id="cvc" onkeypress='return isNumber(event)' type="tel" maxlength="3" name="cc_cvv" placeholder="CVC">
+         <input class="last" <?php echo Etictools::getValue('cc_cvv') ?> name="cc_name" id="cvc" onkeypress='return isNumber(event)' type="tel" maxlength="3" placeholder="CVC">
        </div>
      </div>
      <div class="loader loader--style2" id="installment-loading" title="loading">
@@ -90,7 +91,7 @@
      </div>
     
     
-     <input class="btn_style" type="submit" value="ÖDEMEYİ ONAYLA">
+     <input class="btn_style" name="sanalpospro_submit" type="submit" value="ÖDEMEYİ ONAYLA">
     </form>
     <div style="display: none;" id="spp-form-two">
       <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est, beatae! Impedit ratione error voluptate obcaecati. Delectus suscipit quod, laboriosam pariatur modi, labore dolor atque numquam sapiente ullam, a facilis eligendi?</h1>
